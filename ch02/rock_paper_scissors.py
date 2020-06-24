@@ -23,7 +23,7 @@ def print_choices(USER, user_choice, bot_choice):
     return print(f"{USER}:" + user_choice + "\n" + "BOT:" + bot_choice)
 
 
-def base_case(user_choice, bot_choice, winable):
+def base_case(bot_choice, winable):
     if bot_choice == winable:
         return f"{USER} WON"
     else:
@@ -31,16 +31,18 @@ def base_case(user_choice, bot_choice, winable):
 
 
 def match_winner(user_choice, bot_choice):
-    #I would prefer to use numbers for the options since the beginning.
-    OPTS = {"rock": base_case("rock", bot_choice, "scissors"),
-            "paper": base_case("paper", bot_choice, "rock"),
-            "scissors": base_case("scissors", bot_choice, "paper")}
+    # I would prefer to use numbers for the options since the beginning.
+    OPTS = {"rock": base_case(bot_choice, "scissors"),
+            "paper": base_case(bot_choice, "rock"),
+            "scissors": base_case(bot_choice, "paper")}
     if user_choice == bot_choice:
         print("DRAW")
         return
     return print(OPTS[user_choice])
 
+
 USER = get_username()
+
 print_options()
 user_choice = get_user_choice()
 bot_choice = get_computer_opt()
