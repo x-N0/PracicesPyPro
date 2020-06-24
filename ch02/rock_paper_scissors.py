@@ -31,6 +31,7 @@ def base_case(user_choice, bot_choice, winable):
 
 
 def match_winner(user_choice, bot_choice):
+    #I would prefer to use numbers for the options since the beginning.
     OPTS = {"rock": base_case("rock", bot_choice, "scissors"),
             "paper": base_case("paper", bot_choice, "rock"),
             "scissors": base_case("scissors", bot_choice, "paper")}
